@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- (c) Copyright 2021 ~ Trust Nexus, Inc.
+     All technologies described here in are "Patent Pending". 
+     License information:  http://www.trustnexus.io/license.htm
+  
+     AS LONG AS THIS NOTICE IS MAINTAINED THE LICENSE PERMITS REDISTRIBUTION OR RE-POSTING  
+     OF THIS SOURCE CODE TO A PUBLIC REPOSITORY (WITH OR WITHOUT MODIFICATIONS)! 
+  
+     Report License Violations:  trustnexus.io@austin.rr.com
+  
+     This is a beta version:  0.0.1
+     Suggestions for code improvements:  trustnexus.io@austin.rr.com -->
+
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+          http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+    version="3.0">
+
+  <display-name>JSON DLT Foundation</display-name>
+
+  <filter>
+      <filter-name>struts2</filter-name>
+      <filter-class>org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter</filter-class>
+  </filter>
+
+  <filter-mapping>
+      <filter-name>struts2</filter-name>
+      <url-pattern>*.action</url-pattern>
+  </filter-mapping>
+  
+  <filter-mapping> 
+      <filter-name>struts2</filter-name> 
+      <url-pattern>*.jsp</url-pattern> 
+      <dispatcher>REQUEST</dispatcher> 
+      <dispatcher>FORWARD</dispatcher> 
+      <dispatcher>ERROR</dispatcher> 
+  </filter-mapping>
+
+  <welcome-file-list>
+      <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+
+  <!-- 403 SC_FORBIDDEN -->
+  <error-page>
+    <error-code>403</error-code>
+    <location>/error/error403.jsp</location>
+  </error-page> 
+  
+  <!-- 404 SC_NOT_FOUND -->
+  <error-page>
+    <error-code>404</error-code>
+    <location>/error/error404.jsp</location>
+  </error-page> 
+  
+  <!-- 500 INTERNAL_SERVER_ERROR -->
+  <error-page>
+    <error-code>500</error-code>
+    <location>/error/error500.jsp</location>
+  </error-page>
+
+</web-app>
+
+
+
+
+
+
+

@@ -1,0 +1,166 @@
+<!-- ======================================================================= -->
+<!-- (c) Copyright 2021 ~ Trust Nexus, Inc.                                    -->
+<!-- All technologies described here in are "Patent Pending".                -->
+<!-- License information:  http://www.trustnexus.io/license.htm          -->
+<!-- UNDER NO CIRCUMSTANCES DOES THE LICENSE PERMIT REDISTRIBUTION           -->
+<!-- OR RE-POSTING OF THIS SOURCE CODE (WITH OR WITHOUT MODIFICATIONS)!      -->
+<!-- ======================================================================= -->
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: Helvetica,Arial,sans-serif;
+}
+
+.font_body_text {
+	color: #000000; 
+  font-family: Helvetica,Arial,sans-serif;
+}
+
+.font_emphasis {
+  color: #4B0082; 
+  font-family: Helvetica,Arial,sans-serif; 
+  font-weight: bold
+}
+
+.font_alert {
+	color: #AA0000; 
+  font-family: Helvetica,Arial,sans-serif; 
+  font-weight: bold
+}
+
+.font_copyright {
+  font-size: 12px;}
+
+.font_user_log {
+  color: #00FF00; 
+  font-family: Helvetica,Arial,sans-serif; 
+  font-size: 90%;
+  font-weight: 550}
+  
+.font_computer {
+  color: #000000; 
+  font-family: Courier; 
+  font-size: 85%;
+  text-decoration: none;} 
+
+.content {
+  margin: auto;
+  max-width: 1400px;
+}
+
+.header {
+  background-color: #4B0082;
+  color: #ffffff;
+  padding: 8px 8px 8px 16px;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  padding: 8px;
+  margin-bottom: 8px;
+  background-color: #8034B7;
+  color: #ffffff;
+}
+
+.menu li:hover, .menu li.active {
+  background-color: #4B0082;
+  cursor: pointer;
+}
+
+.menu li.selected {
+  background-color: #4B0082;
+  cursor: arrow;
+}
+
+.mainText {
+  padding-left: 16px;
+  padding-right: 16px;
+  font-size: 14px;
+}
+
+.rightPanel {
+  background-color: #8034B7;
+  padding: 16px;
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.footer {
+  background-color: #4B0082;
+  color: #ffffff;
+  text-align: center;
+  font-size: 12px;
+  padding: 8px;
+  margin-top: 16px;
+}
+
+.textDivA {
+  padding: 0px 0px 16px 0px;
+}
+
+.textDivB {
+  padding: 0px 0px 8px 0px;
+}
+
+.textDivC {
+  padding: 8px 0px 8px 0px;
+}
+
+.textDivD {
+  padding: 0px 4px 8px 0px;
+  min-width: 140px;  
+  text-align: right;
+  float: left;
+}
+                                
+.user_log {
+  height:400px;
+  overflow-y: scroll;
+  border-top: solid #CCCCCC 3px;
+  border-bottom: solid #CCCCCC 3px;
+  border-right: solid #CCCCCC 3px;
+  border-left: solid #CCCCCC 3px;
+  background-color: #000000}
+
+[class*="col-"] {
+  float: left;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+/* Default for mobile phones: */
+[class*="col-"] {
+  width: 100%;
+}
+
+@media only screen and (min-width: 800px) { 
+  .col-tabletA {width: 30%;}
+  .col-tabletB {width: 70%;}
+  .col-tabletC {width: 100%;}
+}
+
+@media only screen and (min-width: 1024px) {  
+  .col-deskTopA {width: 20%;}
+  .col-deskTopB {width: 60%;}
+}
+
+
+
+
+
+
+

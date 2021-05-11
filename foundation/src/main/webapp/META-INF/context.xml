@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+
+<!-- (c) Copyright 2021 ~ Trust Nexus, Inc.
+     All technologies described here in are "Patent Pending". 
+     License information:  http://www.trustnexus.io/license.htm
+  
+     AS LONG AS THIS NOTICE IS MAINTAINED THE LICENSE PERMITS REDISTRIBUTION OR RE-POSTING  
+     OF THIS SOURCE CODE TO A PUBLIC REPOSITORY (WITH OR WITHOUT MODIFICATIONS)! 
+  
+     Report License Violations:  trustnexus.io@austin.rr.com
+  
+     This is a beta version:  0.0.1
+     Suggestions for code improvements:  trustnexus.io@austin.rr.com -->
+
+<Context>    
+                
+  <Resource    name = "mail/tnx" 
+               auth = "Container" 
+               type = "javax.mail.Session"
+     mail.pop3.host = "pop-server.austin.rr.com"
+     mail.smtp.host = "smtp-server.austin.rr.com"  
+          mail.from = "trustnexus.io@austin.rr.com"
+         mail.debug = "true"/>                
+         
+  
+    <!-- http://tomcat.apache.org/tomcat-7.0-doc/jndi-resources-howto.html#JavaMail_Sessions
+    
+         If the resource is configured with a password attribute and either a mail.smtp.user or mail.user attribute then 
+         Tomcat's resource factory will configure and add a javax.mail.Authenticator to the mail session.
+         
+         Unpackage the distribution and place mail.jar into $CATALINA_HOME/lib so that it is available to Tomcat during the 
+         initialization of the mail Session Resource. Note: placing this jar in both $CATALINA_HOME/lib and a web application's 
+         lib folder will cause an error, so ensure you have it in the $CATALINA_HOME/lib location only. 
+     -->
+ 
+</Context>
+
+
+
+
+
+
+

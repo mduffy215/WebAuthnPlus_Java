@@ -1,0 +1,304 @@
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">   
+
+<!-- ======================================================================= -->
+<!-- (c) Copyright 2021 ~ Trust Nexus, Inc.                                  -->
+<!-- All technologies described here in are "Patent Pending".                -->
+<!-- License information:  http://www.trustnexus.io/license.htm              -->
+<!-- UNDER NO CIRCUMSTANCES DOES THE LICENSE PERMIT REDISTRIBUTION           -->
+<!-- OR RE-POSTING OF THIS SOURCE CODE (WITH OR WITHOUT MODIFICATIONS)!      -->
+<!-- ======================================================================= -->
+
+<struts>
+
+    <!-- http://struts.apache.org/2.0.11/docs/devmode.html -->
+    <constant name="struts.devMode" value="false" />
+    <constant name="struts.ui.theme" value="simple" />
+    <constant name="struts.ognl.allowStaticMethodAccess" value="true"/>
+
+    <package name="jsondlt" namespace="/" extends="struts-default">        
+        
+        <!-- http://struts.apache.org/release/2.2.x/docs/exception-handling.html -->
+        <interceptors>
+				  <interceptor-stack name="appDefaultStack">
+				    <interceptor-ref name="defaultStack">
+				     <param name="exception.logEnabled">true</param>
+				     <param name="exception.logLevel">ERROR</param>
+				    </interceptor-ref>
+				  </interceptor-stack>
+				</interceptors>
+				
+				<default-interceptor-ref name="appDefaultStack" />
+        
+        <global-results>
+            <result name="error">/error/error500.jsp</result>
+            <result name="message">/view/message.jsp</result>
+        </global-results>
+
+        <global-exception-mappings>
+            <exception-mapping exception="java.sql.SQLException" result="error"/>
+            <exception-mapping exception="java.lang.Exception" result="error"/>
+        </global-exception-mappings> 
+        
+        
+        <!-- mobileapp -->
+
+        <action name="accountActivation" class="io.trustnexus.struts.actions.mobileapp.AccountActivationAction" method="execute">
+          <result name="success">/view/message.jsp</result>
+        </action>                                     
+
+        <action name="createSecurityKey" class="io.trustnexus.struts.actions.mobileapp.CreateSecurityKeyAction"> 
+          <result type="stream">
+            <param name="contentType">text/html</param>
+            <param name="inputName">inputStream</param>
+          </result>
+        </action>        
+
+        <action name="createUser" class="io.trustnexus.struts.actions.mobileapp.CreateUserAction">            
+	        <result type="stream">
+	          <param name="contentType">text/html</param>
+	          <param name="inputName">inputStream</param>
+	        </result>            
+        </action>        
+
+        <action name="createUserPublicKey" class="io.trustnexus.struts.actions.mobileapp.CreateUserPublicKeyAction">          
+          <result type="stream">
+            <param name="contentType">text/html</param>
+            <param name="inputName">inputStream</param>
+          </result>            
+        </action>            
+
+        <action name="mobileApplicationSignOn" class="io.trustnexus.struts.actions.mobileapp.MobileApplicationSignOnAction">     
+          <result type="stream">
+            <param name="contentType">text/html</param>
+            <param name="inputName">inputStream</param>
+          </result>            
+        </action>
+
+        <action name="retrieveCredentialMetaData" class="io.trustnexus.struts.actions.mobileapp.RetrieveCredentialMetaDataAction">        
+          <result type="stream">
+            <param name="contentType">text/html</param>
+            <param name="inputName">inputStream</param>
+          </result>            
+        </action>
+
+        <action name="retrieveTnxCredentialMetaData" class="io.trustnexus.struts.actions.mobileapp.RetrieveTnxCredentialMetaDataAction">        
+          <result type="stream">
+            <param name="contentType">text/html</param>
+            <param name="inputName">inputStream</param>
+          </result>            
+        </action>                
+
+        <action name="updateUser" class="io.trustnexus.struts.actions.mobileapp.UpdateUserAction">  
+          <result type="stream">
+            <param name="contentType">text/html</param>
+            <param name="inputName">inputStream</param>
+          </result>            
+        </action>   
+        
+        <!-- createcredential -->                                  
+                
+        <action name="initializeCreateCredential" class="io.trustnexus.struts.actions.createcredential.InitializeCreateCredentialAction">         
+          <result type="stream">
+            <param name="contentType">text/html</param>
+            <param name="inputName">inputStream</param>
+          </result>
+        </action>         
+
+        <action name="createCredential" class="io.trustnexus.struts.actions.createcredential.CreateCredentialAction">           
+          <result type="stream">
+            <param name="contentType">text/html</param>
+            <param name="inputName">inputStream</param>
+          </result>
+        </action>         
+
+        <action name="cancelCreateCredential" class="io.trustnexus.struts.actions.createcredential.CancelCreateCredentialAction">           
+          <result type="stream">
+            <param name="contentType">text/html</param>
+            <param name="inputName">inputStream</param>
+          </result>
+        </action> 
+
+        <action name="createCredentialCheck" class="io.trustnexus.struts.actions.createcredential.CreateCredentialCheckAction">        
+          <result type="stream">
+            <param name="contentType">text/html</param>
+            <param name="inputName">inputStream</param>
+          </result>
+        </action> 
+
+        <action name="createCredentialSessionTimeout" class="io.trustnexus.struts.actions.createcredential.CreateCredentialSessionTimeoutAction"></action> 
+        
+        
+        <!-- signon --> 
+
+        <action name="initializeSignOn" class="io.trustnexus.struts.actions.signon.InitializeSignOnAction">        
+          <result type="stream">
+            <param name="contentType">text/html</param>
+            <param name="inputName">inputStream</param>
+          </result>
+        </action>  
+
+        <action name="signOnCheck" class="io.trustnexus.struts.actions.signon.SignOnCheckAction">     
+          <result type="stream">
+            <param name="contentType">text/html</param>
+            <param name="inputName">inputStream</param>
+          </result>
+        </action>          
+
+        <action name="signOn" class="io.trustnexus.struts.actions.signon.SignOnAction">      
+          <result type="stream">
+            <param name="contentType">text/html</param>
+            <param name="inputName">inputStream</param>
+          </result>
+        </action>          
+
+        <action name="cancelSignOn" class="io.trustnexus.struts.actions.signon.CancelSignOnAction">      
+          <result type="stream">
+            <param name="contentType">text/html</param>
+            <param name="inputName">inputStream</param>
+          </result>
+        </action>    
+
+        <action name="signOnSessionTimeout" class="io.trustnexus.struts.actions.signon.SignOnSessionTimeoutAction"></action>
+        
+        <action name="signOnConfirmation" class="io.trustnexus.struts.actions.signon.SignOnConfirmationAction" method="execute">
+          <result name="success">/view/signOnConfirmation.jsp</result>
+          <result name="forbidden">/error/error403.jsp</result>
+          <result name="dltTemplate" type="redirect">
+            <param name="location">/view/dltTemplate.jsp</param>
+            <param name="credentialType">${credentialType}</param>
+          </result> 
+        </action>  
+
+        <action name="establishTrustedSystem" class="io.trustnexus.struts.actions.signon.EstablishTrustedSystemAction">        
+          <result type="stream">
+            <param name="contentType">text/html</param>
+            <param name="inputName">inputStream</param>
+          </result>
+        </action>   
+
+        <action name="passwordSignOn" class="io.trustnexus.struts.actions.signon.PasswordSignOnAction">        
+          <result type="stream">
+            <param name="contentType">text/html</param>
+            <param name="inputName">inputStream</param>
+          </result>
+        </action>
+        
+        
+        <!-- distributed ledger --> 
+        
+        <action name="displayDistributedLedgerSignatureRequest" class="io.trustnexus.struts.actions.distributedledger.DisplayDistributedLedgerSignatureRequestAction" method="execute">
+          <result name="success" type="redirect">
+            <param name="location">/view/dltTemplate.jsp</param>
+          </result> 
+          <result name="signOn" type="redirect">
+            <param name="location">/view/signOn.jsp</param>
+            <param name="credentialType">${credentialType}</param>
+            <param name="distributedLedgerInitialized">${distributedLedgerInitialized}</param>
+          </result> 
+        </action> 
+        
+        <action name="initializeDistributedLedgerSignatureRequest" class="io.trustnexus.struts.actions.distributedledger.InitializeDistributedLedgerSignatureRequestAction" method="execute">
+          <result name="success" type="redirect">
+            <param name="location">/view/dltSignatureRequest.jsp</param> 
+            <param name="sessionUuid">${sessionUuid}</param>
+            <param name="credentialType">${credentialType}</param>
+            <param name="credentialProviderName">${credentialProviderName}</param>
+            <param name="domainName">${domainName}</param>
+            <param name="authenticationCode">${authenticationCode}</param>
+          </result> 
+          <result name="signOn" type="redirect">
+            <param name="location">/view/signOn.jsp</param>
+            <param name="credentialType">${credentialType}</param>
+          </result> 
+        </action>     
+
+        <action name="distributedLedgerSignatureCheck" class="io.trustnexus.struts.actions.distributedledger.DistributedLedgerSignatureCheckAction">     
+          <result type="stream">
+            <param name="contentType">text/html</param>
+            <param name="inputName">inputStream</param>
+          </result>
+        </action>          
+
+        <action name="retrieveUnsignedDistributedLedger" class="io.trustnexus.struts.actions.distributedledger.RetrieveUnsignedDistributedLedgerAction">      
+          <result type="stream">
+            <param name="contentType">text/html</param>
+            <param name="inputName">inputStream</param>
+          </result>
+        </action>           
+
+        <action name="returnSignedDistributedLedger" class="io.trustnexus.struts.actions.distributedledger.ReturnSignedDistributedLedgerAction">      
+          <result type="stream">
+            <param name="contentType">text/html</param>
+            <param name="inputName">inputStream</param>
+          </result>
+        </action>    
+
+        <action name="distributedLedgerSignatureSessionTimeout" class="io.trustnexus.struts.actions.distributedledger.DistributedLedgerSignatureSessionTimeoutAction"></action>
+        
+        
+        <!-- general -->                                                  
+
+        <action name="retrieveTransactionUuid" class="io.trustnexus.struts.actions.RetrieveTransactionUuidAction">       
+          <result type="stream">
+            <param name="contentType">text/html</param>
+            <param name="inputName">inputStream</param>
+          </result>            
+        </action>                                              
+
+        <action name="retrieveTnxTransactionUuid" class="io.trustnexus.struts.actions.RetrieveTransactionUuidAction">       
+          <result type="stream">
+            <param name="contentType">text/html</param>
+            <param name="inputName">inputStream</param>
+          </result>            
+        </action>             
+
+        <action name="deleteCredential" class="io.trustnexus.struts.actions.DeleteCredentialAction">          
+          <result type="stream">
+            <param name="contentType">text/html</param>
+            <param name="inputName">inputStream</param>
+          </result>
+        </action>  
+                
+        <action name="displayTestOverview" class="io.trustnexus.struts.actions.DisplayTestOverviewAction" method="execute">
+          <result name="success">/view/testOverview.jsp</result>
+        </action> 
+        
+        
+        <!-- Funds Transfer -->  
+
+        <action name="funds" class="io.trustnexus.struts.actions.fundstransfer.FundsNotificationAction" method="execute">
+          <result name="success">/view/fundsNotification.jsp</result>
+        </action>                                                               
+
+        <action name="sendFunds" class="io.trustnexus.struts.actions.fundstransfer.SendFundsAction">          
+          <result type="stream">
+            <param name="contentType">text/html</param>
+            <param name="inputName">inputStream</param>
+          </result>
+        </action>                
+
+        <action name="receiveFunds" class="io.trustnexus.struts.actions.fundstransfer.ReceiveFundsAction">          
+          <result type="stream">
+            <param name="contentType">text/html</param>
+            <param name="inputName">inputStream</param>
+          </result>
+        </action>                
+
+        <action name="acceptFunds" class="io.trustnexus.struts.actions.fundstransfer.AcceptFundsAction">          
+          <result type="stream">
+            <param name="contentType">text/html</param>
+            <param name="inputName">inputStream</param>
+          </result>
+        </action>           
+
+    </package>
+  
+</struts>
+
+
+
+
+
+
+
