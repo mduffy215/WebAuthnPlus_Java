@@ -33,8 +33,12 @@ import org.apache.logging.log4j.Logger;
 import io.trustnexus.model.mobileapp.User;
 
 /*
- * mail-1.4.7.jar to ../apache-tomcat-8.5.31/lib
- * https://haveacafe.wordpress.com/2008/09/26/113/
+ * get the  activation-1.1.1.jar  from  https://mvnrepository.com/artifact/javax.activation/activation
+ * get the  javax.mail-1.6.2.jar  from  https://mvnrepository.com/artifact/com.sun.mail/javax.mail
+ * 
+ * Place both jar files in  C:\opt\apache-tomcat-9.0.46\lib
+ *  * 
+ * Ref:  https://haveacafe.wordpress.com/2008/09/26/113/
  */
 public class EmailFactory {
 
