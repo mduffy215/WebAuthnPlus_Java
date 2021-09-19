@@ -297,7 +297,7 @@ public class Utilities {
 		      	 
 		      	boolean continueProcessing = true;		      	
 
-	      		int insertionPoint = line.indexOf("(com.");
+	      		int insertionPoint = line.indexOf("(io.");
 		      	if (insertionPoint != -1 ) {
 	      			line = line.substring(0, insertionPoint) + "<br/>" + line.substring(insertionPoint, line.length()); 
 	      			insertionPoint += PropertyManager.getInstance().getInteger(Constants.LOG_FILE_LINE_LENGTH);  
