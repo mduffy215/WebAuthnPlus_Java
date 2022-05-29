@@ -1,5 +1,5 @@
 /*
- * (c) Copyright 2021 ~ Trust Nexus, Inc.
+ * (c) Copyright 2022 ~ Trust Nexus, Inc.
  * All technologies described here in are "Patent Pending". 
  * License information:  http://www.trustnexus.io/license.htm
  * 
@@ -182,6 +182,9 @@ public class PublicPrivateKeyDao {
   public static PublicPrivateKey retrieveByUuid(String uuid) {
 
     logger.info("###Entering");
+    logger.info("uuid: " + uuid);
+    
+    //uuid = "1653115662393-4284C11E-BD60-4A01-9451-F8EF3D280F8F";
     
   	PublicPrivateKey publicPrivateKey = null;
   
@@ -198,7 +201,20 @@ public class PublicPrivateKeyDao {
       
       resultSet = retrieveStatement.executeQuery(); 
       
+      
+      
+      logger.info("resultSet test");
+      
+      if (resultSet == null) { 
+          logger.info("resultSet null");		
+	  } else { 
+	      logger.info("resultSet not null ");		  
+	  }
+      
+      
+      
       if (resultSet != null && resultSet.next()) {
+    	logger.info("resultSet not null");
       	publicPrivateKey = loadFromResultSet(resultSet);
       }
       

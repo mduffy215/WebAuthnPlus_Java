@@ -5,7 +5,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
-  <!-- (c) Copyright 2021 ~ Trust Nexus, Inc.
+  <!-- (c) Copyright 2022 ~ Trust Nexus, Inc.
        All technologies described here in are "Patent Pending". 
        License information:  http://www.trustnexus.io/license.htm
   
@@ -132,7 +132,7 @@
 			  <td class="cell_text4"><img src="../../foundation/images/pixel_brownze.png" height="2" width="900"/></td>
 			</tr>
 			<tr>
-			  <td><span class="font_footer">&copy; Copyright 2021 ~ Trust Nexus, Inc.</span></td>
+			  <td><span class="font_footer">&copy; Copyright 2022 ~ Trust Nexus, Inc.</span></td>
 			</tr>
 			<tr>
 			  <td><span class="font_footer">All technologies described here in are "Patent Pending".</span></td>

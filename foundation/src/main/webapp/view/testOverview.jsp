@@ -5,7 +5,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
-  <!-- (c) Copyright 2021 ~ Trust Nexus, Inc.
+  <!-- (c) Copyright 2022 ~ Trust Nexus, Inc.
        All technologies described here in are "Patent Pending". 
        License information:  http://www.trustnexus.io/license.htm
   
@@ -60,9 +60,9 @@
                the <span class="font_emphasis">TNX WebAuthn+</span> mobile app, you can test the system (options on the left).</p>
             <p>Start with "Create Credential".</p>
                
-	          <p>Currently, the Web Bluetooth API is only functional in the <strong>latest versions of Chrome and Edge running on Windows 10</strong>.<br>Firefox is coming soon.</p>
-            <p>You will need to make sure Bluetooth is turned on in Windows 10.</p>
-            <p>You will need to set the Windows 10, "Allow apps to control device radios", to "On" while Chrome is NOT running.</p>
+	          <p>Currently, the Web Bluetooth API is only functional in the <strong>latest versions of Chrome and Edge running on Windows 10/11</strong>.</p>
+            <p>You will need to make sure Bluetooth is turned on in Windows 10/11.</p>
+            <p>You will need to set the Windows 10/11, "Allow apps to control device radios", to "On" while Chrome is NOT running.</p>
             <p>Once you and a friend have each created the test <span class="font_emphasis">Financial Credential</span>
                you can test the funds transfer process (with simulated data).&nbsp; <a href="http://www.trustnexus.io/finance.htm" target="_blank">Click Here</a> for more details.</p>
 	          
@@ -83,7 +83,7 @@
 	    </div> 
 	    
 	    <div>
-	      <p><span class="font_copyright">&copy; Copyright 2021 ~ Trust Nexus, Inc.
+	      <p><span class="font_copyright">&copy; Copyright 2022 ~ Trust Nexus, Inc.
            <br>All technologies described here in are "Patent Pending".</span></p>
 	    </div> 
 	  </div>  

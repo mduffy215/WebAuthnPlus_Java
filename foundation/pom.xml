@@ -117,7 +117,7 @@
         <artifactId>maven-war-plugin</artifactId>
         <version>3.2.2</version>
         <configuration>
-          <outputDirectory>C:\opt\apache-tomcat-9.0.46\webapps\</outputDirectory>
+          <outputDirectory>C:\opt\apache-tomcat-9.0.63\webapps\</outputDirectory>
         </configuration>
       </plugin>
     </plugins>

@@ -1,5 +1,5 @@
 /*
- * (c) Copyright 2021 ~ Trust Nexus, Inc.
+ * (c) Copyright 2022 ~ Trust Nexus, Inc.
  * All technologies described here in are "Patent Pending". 
  * License information:  http://www.trustnexus.io/license.htm
  * 
@@ -79,8 +79,8 @@ public class C3P0DataSource {
       numBusyConnections = comboPooledDataSource.getNumBusyConnectionsDefaultUser();
       numIdleConnections = comboPooledDataSource.getNumIdleConnectionsDefaultUser();
       
-      //logger.info("@@@@@@@@@@@@@@@@ minPoolSize: " + minPoolSize + "  maxPoolSize: " + maxPoolSize + "  numConnections: " + numConnections 
-        //  + "  numBusyConnections: " + numBusyConnections + "  numIdleeConnections: " + numIdleConnections + "  activeConnectionCount: " + activeConnectionCount);
+//      logger.info("@@@@@@@@@@@@@@@@ minPoolSize: " + minPoolSize + "  maxPoolSize: " + maxPoolSize + "  numConnections: " + numConnections 
+//          + "  numBusyConnections: " + numBusyConnections + "  numIdleeConnections: " + numIdleConnections + "  activeConnectionCount: " + activeConnectionCount);
       
     } catch (SQLException e) {
       throw new RuntimeException(e);

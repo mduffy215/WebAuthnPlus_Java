@@ -42,6 +42,7 @@ CREATE TABLE `Authentication` (
   `updated` DATETIME NOT NULL,
   `updatedById` BIGINT unsigned NOT NULL,
   `dataSourceTypeValue` BIGINT unsigned NOT NULL,
+  `serverSessionId` VARCHAR(256) DEFAULT NULL,
   `credentialProviderUuid` VARCHAR(64) DEFAULT NULL,
   `credentialType` VARCHAR(256) DEFAULT NULL,
   `credentialUuid` VARCHAR(256) DEFAULT NULL,

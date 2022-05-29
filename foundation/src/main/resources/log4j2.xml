@@ -2,7 +2,7 @@
 <!DOCTYPE xml>
 <Configuration status="WARN">
   <Properties>
-    <Property name="logPath">C:/opt/apache-tomcat-9.0.46/logs/rolling</Property>
+    <Property name="logPath">C:/opt/apache-tomcat-9.0.63/logs/rolling</Property>
   </Properties>
   <Appenders>
     <Console name="console" target="SYSTEM_OUT">

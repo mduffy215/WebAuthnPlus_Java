@@ -5,7 +5,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
-  <!-- (c) Copyright 2021 ~ Trust Nexus, Inc.
+  <!-- (c) Copyright 2022 ~ Trust Nexus, Inc.
        All technologies described here in are "Patent Pending". 
        License information:  http://www.trustnexus.io/license.htm
   
