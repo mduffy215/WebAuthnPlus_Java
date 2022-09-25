@@ -228,6 +228,7 @@ public class Constants {
     public static final String CREDENTIAL_PROVIDER_SIGNATURE_ALGORITHM = "credentialProviderSignatureAlgorithm";
     public static final String CREDENTIAL_PROVIDER_SECURE_HASH_ALGORITHM = "credentialProviderSecureHashAlgorithm";
 
+    public static final String SERVICE_UUID = "serviceUuid";
     public static final String AUTHENTICATION_CODE = "authenticationCode";
     public static final String REGISTRATION_CODE = "registrationCode";
     public static final String SESSION_UUID = "sessionUuid";
@@ -327,4 +328,6 @@ public class Constants {
     public static final String VISITOR_THREAT_SYSTEM_INITIALIZATION = "SYSTEM INITIALIZATION";
     public static final String VISITOR_THREAT_AUTHENTICATION = "AUTHENTICATION";
     public static final String VISITOR_CREATE_CREDENTIAL = "CREATE CREDENTIAL";
+
+    public static final String SESSION_SPECIF_PAIRING_PREVIX = "5353503e";  // HEX for 'SSP>'
 }

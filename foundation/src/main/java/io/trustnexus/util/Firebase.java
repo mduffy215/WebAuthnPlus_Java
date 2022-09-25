@@ -29,59 +29,46 @@ import org.apache.logging.log4j.Logger;
 
 public class Firebase {
 
-  private static Logger logger = LogManager.getLogger(Firebase.class);
+    private static Logger logger = LogManager.getLogger(Firebase.class);
 
-	public static void sendMessage(String notificationBody, HashMap<String, String> firebaseTransferDataMap, String userDeviceIdKey) {
+    public static void sendMessage(String notificationBody, HashMap<String, String> firebaseTransferDataMap, String userDeviceIdKey) {
 
-    logger.info("###Entering");
-	   
-	  try {
-      URL url = new URL(PropertyManager.getInstance().getProperty(Constants.FIREBASE_API_URL));
-			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+        logger.info("###Entering");
 
-			conn.setUseCaches(false);
-			conn.setDoInput(true);
-			conn.setDoOutput(true);
+        try {
+            URL url = new URL(PropertyManager.getInstance().getProperty(Constants.FIREBASE_API_URL));
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
-			conn.setRequestMethod("POST");
-			conn.setRequestProperty("Authorization","key=" + PropertyManager.getInstance().getProperty(Constants.FIREBASE_AUTH_KEY));
-			conn.setRequestProperty("Content-Type","application/json");
-			 
-			JsonObject info = Json.createObjectBuilder()
-			    .add("title", PropertyManager.getInstance().getProperty(Constants.NOTIFICATION_TITLE)) 
-			    .add("body", notificationBody)   
-			    .add("sound", "mySound").build(); 
-			 
-			JsonObjectBuilder dataBuilder = Json.createObjectBuilder();
-					 
-			for (Iterator<String> iterator = firebaseTransferDataMap.keySet().iterator(); iterator.hasNext();) {
-				String key = iterator.next();
-				dataBuilder.add(key, firebaseTransferDataMap.get(key));   
-			}	  
-			 
-			JsonObject data = dataBuilder.build();
+            conn.setUseCaches(false);
+            conn.setDoInput(true);
+            conn.setDoOutput(true);
 
-			JsonObject json =  Json.createObjectBuilder()
-			    .add("to",userDeviceIdKey.trim())
-          .add("notification", info)
-          .add("data", data).build();
+            conn.setRequestMethod("POST");
+            conn.setRequestProperty("Authorization", "key=" + PropertyManager.getInstance().getProperty(Constants.FIREBASE_AUTH_KEY));
+            conn.setRequestProperty("Content-Type", "application/json");
 
-			OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
-			wr.write(json.toString());
-			wr.flush();
-			conn.getInputStream();
+            JsonObject info = Json.createObjectBuilder().add("title", PropertyManager.getInstance().getProperty(Constants.NOTIFICATION_TITLE)).add("body", notificationBody).add("sound", "mySound").build();
 
-		  logger.debug("###!!!Message sent:" + json.toString().length() + " B  " + json.toString());
-			 
-		} catch (Exception e) {
-			throw new RuntimeException(e);
-		}
-	}
+            JsonObjectBuilder dataBuilder = Json.createObjectBuilder();
+
+            for (Iterator<String> iterator = firebaseTransferDataMap.keySet().iterator(); iterator.hasNext();) {
+                String key = iterator.next();
+                dataBuilder.add(key, firebaseTransferDataMap.get(key));
+            }
+
+            JsonObject data = dataBuilder.build();
+
+            JsonObject json = Json.createObjectBuilder().add("to", userDeviceIdKey.trim()).add("notification", info).add("data", data).build();
+
+            OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
+            wr.write(json.toString());
+            wr.flush();
+            conn.getInputStream();
+
+            logger.debug("###!!!Message sent:" + json.toString().length() + " B  " + json.toString());
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
-
-
-
-
-
-
-

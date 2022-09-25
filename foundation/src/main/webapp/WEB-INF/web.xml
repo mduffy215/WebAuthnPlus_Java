@@ -12,11 +12,11 @@
      This is a beta version:  0.0.1
      Suggestions for code improvements:  trustnexus.io@austin.rr.com -->
 
-<web-app xmlns="http://java.sun.com/xml/ns/javaee"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
-          http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
-    version="3.0">
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                      http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+  version="4.0">
 
   <display-name>JSON DLT Foundation</display-name>
 

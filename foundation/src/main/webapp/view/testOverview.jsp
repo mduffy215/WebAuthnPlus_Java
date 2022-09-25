@@ -56,7 +56,7 @@
           
 	          <h2><span class="font_emphasis">Test Overview</span></h2>
 	          
-	          <p>If you have already <a href="https://play.google.com/store/apps/details?id=com.webauthnplus.webauthnplus" target="_blank">downloaded</a> 
+	          <p>If you have already <a href="https://play.google.com/store/apps/details?id=io.trustnexus.webauthnplus" target="_blank">downloaded</a> 
                the <span class="font_emphasis">TNX WebAuthn+</span> mobile app, you can test the system (options on the left).</p>
             <p>Start with "Create Credential".</p>
                

@@ -85,20 +85,26 @@ public class CreateCredentialCheckAction extends ActionSupport implements Servle
         UserSessionTrackingDao.updateUserIdentifier(user.getUserUuid(), userSessionTrackingId); 
 
         Credential credential = CredentialDao.retrieveByUserUuidAndSessionUuid(user.getUserUuid(), sessionUuid);
-        logger.debug("credential: " + credential.toString());
-  
-        if (credential.hasCredentialBeenCreated()) {
-  
-          responseString = Constants.MESSAGE + "=" + credential.hasCredentialBeenCreated() + "&" 
-                         + Constants.SCREEN_NAME + "=" + credential.getScreenName() + "&"
-                         + Constants.VERIFICATION_CODE + "=" + credential.getVerificationCode() + "&"
-                         + Constants.CREDENTIAL_TYPE + "=" + credential.getCredentialType().getCredentialTypeName() + "&";
-          
-        } else if (credential.isCanceled()) {
-          responseString = Constants.CANCELED + "=" + Constants.CANCELED + "&"; 
-        } else {
-          responseString = "false";
-        }
+        
+        if (credential != null) {
+            
+            logger.debug("credential: " + credential.toString());
+      
+            if (credential.hasCredentialBeenCreated()) {
+      
+              responseString = Constants.MESSAGE + "=" + credential.hasCredentialBeenCreated() + "&" 
+                             + Constants.SCREEN_NAME + "=" + credential.getScreenName() + "&"
+                             + Constants.VERIFICATION_CODE + "=" + credential.getVerificationCode() + "&"
+                             + Constants.CREDENTIAL_TYPE + "=" + credential.getCredentialType().getCredentialTypeName() + "&";
+              
+            } else if (credential.isCanceled()) {
+              responseString = Constants.CANCELED + "=" + Constants.CANCELED + "&"; 
+            } else {
+              responseString = "false";
+            }			
+		} else {
+            responseString = "false";			
+		}
         
       } else {
         responseString = PropertyManager.getInstance().getProperty(Constants.USER_DOES_NOT_EXIST);

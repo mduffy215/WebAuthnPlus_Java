@@ -24,11 +24,26 @@
   var secondsRemaining;
   var timerFunction;
   var credentialProviderName = "Trust Nexus";
-  var domainName = "www.webauthnplus.com";  
-  var serviceUuid = "29143321-ef6c-4761-947c-c858f9a2e8f1";
-  var domainNameCharacteristicUuid = "0b9fcbba-1391-4411-8d53-a638b128496f";
-  var sessionUuidCharacteristicUuid = "026ca15b-3357-4f0f-bc9c-dde367f9dd31";
   
+  /*
+   * On most WebBluetooth enabled browsers, this value is written from the Java Script context to the GATT server 
+   * running on the user's mobile device.  Like all othe MFA schemes, it is NOT completely secure against a 
+   * sophisticated phishing/MITM attack.
+   *
+   * The "Nexus Chromium" browser will ignore this value and validate the domain name from the browser application context.
+   * 
+   * A bad actor would need to install a malacious version of "Nexus Chromium"" on your computer in order to compromise your sign on   
+   */
+  var domainName = "https://www.webauthnplus.com";  
+  
+  /*
+   * https://novelbits.io/uuid-for-custom-services-and-characteristics/
+   */
+  var sessionSpecificPairingPrevix = "5353503e";  // HEX for 'SSP>' 
+  var serviceUuid;
+  var domainNameCharacteristicUuid = "446f6d61-696e-204e-616d-65205353503e";  // "HEX to text:  Domain Name SSP>" 
+  var sessionUuidCharacteristicUuid = "544e5820-5365-7373-696f-6e2055554944"; // "HEX to text:  TNX Session UUID"
+                                       
   var email;
   var sessionUuid;
   var credentialType;
@@ -124,12 +139,15 @@
     console.log("email: " + email);
     createCookie('email', email, 365);
     
+    serviceUuid = generateSessionSpecificPairingServiceUuid();
+    console.log("serviceUuid: " + serviceUuid);
+    
     sessionUuid = uuid();
     console.log("sessionUuid: " + sessionUuid);
       
     createXMLHttpRequest();
     
-    xmlhttp.open("POST", "../../foundation/initializeCreateCredential.action?credentialType=" + credentialType + "&email=" + email + "&sessionUuid=" + sessionUuid , true);
+    xmlhttp.open("POST", "../../foundation/initializeCreateCredential.action?credentialType=" + credentialType + "&email=" + email + "&serviceUuid=" + serviceUuid + "&sessionUuid=" + sessionUuid , true);
     xmlhttp.setRequestHeader( "pragma", "no-cache" );      
     xmlhttp.setRequestHeader("Cache-Control","no-cache,max-age=0"); 
     xmlhttp.send(null);
@@ -147,6 +165,8 @@
             document.getElementById("createCredential2").style.display = 'none';
             document.getElementById("createCredential4").style.display = 'block';
               
+            serviceUuid = parseNameValuePairs(responseText, 'serviceUuid');
+              
             var authenticationCode = parseNameValuePairs(responseText, 'authenticationCode');
             document.getElementById("authenticationCode").innerHTML = authenticationCode;
             
@@ -163,16 +183,19 @@
           }                
         }
       }
-    }  
+    }    
   
-    console.log('Requesting Service...');
+    console.log('Requesting Service... ' + serviceUuid);
     let device = await navigator.bluetooth.requestDevice({filters: [{services: [serviceUuid]}]});
-    
+      
+    console.log("await device.gatt.connect()");
     let server = await device.gatt.connect();
-    
+  
+    console.log("await server.getPrimaryService(serviceUuid)");
     let service = await server.getPrimaryService(serviceUuid);
-    
-    var textEncoder = new TextEncoder(); 
+  
+    console.log("new TextEncoder()");
+    var textEncoder = new TextEncoder();  
     
     console.log('Getting Domain Name Characteristic...');
     let domainNameCharacteristic = await service.getCharacteristic(domainNameCharacteristicUuid);
@@ -386,12 +409,15 @@
     console.log("email: " + email);
     createCookie('email', email, 365);
     
+    serviceUuid = generateSessionSpecificPairingServiceUuid();
+    console.log("serviceUuid: " + serviceUuid);
+    
     sessionUuid = uuid();
-    console.log("sessionUuid: " + sessionUuid);
+    console.log("sessionUuid: " + sessionUuid);   
       
     createXMLHttpRequest();
     
-    xmlhttp.open("POST", "../../foundation/initializeSignOn.action?credentialType=" + credentialType + "&email=" + email + "&sessionUuid=" + sessionUuid , true);
+    xmlhttp.open("POST", "../../foundation/initializeSignOn.action?credentialType=" + credentialType + "&email=" + email + "&serviceUuid=" + serviceUuid + "&sessionUuid=" + sessionUuid, true);
     xmlhttp.setRequestHeader( "pragma", "no-cache" );      
     xmlhttp.setRequestHeader("Cache-Control","no-cache,max-age=0"); 
     xmlhttp.send(null);
@@ -407,6 +433,8 @@
 
             document.getElementById("authentication1").style.display = 'block';
             document.getElementById("authentication2").style.display = 'none';
+              
+            serviceUuid = parseNameValuePairs(responseText, 'serviceUuid');
               
             var authenticationCode = parseNameValuePairs(responseText, 'authenticationCode');
             document.getElementById("authenticationCode").innerHTML = authenticationCode;
@@ -428,8 +456,7 @@
           }                
         }
       }
-    }  
-    
+    }    
     
     try {    
   
@@ -1066,6 +1093,14 @@
     var uuidv4p = uuidv4();
     
     return systemTimeMillis + "-" + uuidv4p;
+  }
+  
+  /* ------------------------------------------------------------------------------------------------------------- */ 
+   
+  function generateSessionSpecificPairingServiceUuid() {
+    
+    var uuidv4p = uuidv4();
+	return sessionSpecificPairingPrevix + uuidv4p.substring(uuidv4p.indexOf("-"));
   }
 
   /* --------------------------------------------------------------------------------------------------------------- */
