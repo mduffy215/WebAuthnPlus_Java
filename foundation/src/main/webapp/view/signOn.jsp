@@ -104,11 +104,7 @@ response.setDateHeader("expires", 0);
 								class="font_alert"><span id='authenticationCode'></span></span>
 						</div>
 						<div class="textDivA">
-							Open your <span class="font_emphasis">TNX WebAuthn+</span> mobile
-							app; your mobile device will appear in the pairing screen.&nbsp;
-							<br></>Pair your device then touch the <span
-								class="font_emphasis">Sign On</span> button in your <span
-								class="font_emphasis">TNX WebAuthn+</span> mobile app.
+							Touch the <span	class="font_emphasis">Sign On</span> button in your <span class="font_emphasis">TNX WebAuthn+</span> mobile app.
 						</div>
 
 					</div>
@@ -137,12 +133,11 @@ response.setDateHeader("expires", 0);
 								style="width: 100px; height: 28px; border: 0;"
 								src="../../foundation/images/button_webauthn+.png"></img></a>
 						</div>
-						<div class="textDivC">
-							When you click the WebAuthn+ button a screen will be displayed to
-							pair your smart phone to this web page through a <a
-								href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Authentication_API#Browser_compatibility"
-								target="_blank">Web Bluetooth</a> connection.
-						</div>
+              
+                        <div class="textDivC">Activate your <span class="font_emphasis">TNX WebAuthn+</span> mobile app.</div>
+              
+                        <div class="textDivC">"Session specific pairing" from the 
+		                  <a href="https://drive.google.com/file/d/13Ki_eTSWhSBylI2TaBh4gmH_W-4bXIfS/view?usp=sharing" target="_blank">Nexus Chromium Browser</a> will pair this web page to your mobile device.</div>
 
 					</div>
 

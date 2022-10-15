@@ -24,7 +24,7 @@
     <meta http-equiv="Pragma" content="no-cache"/>
     <meta http-equiv="Expires" content="no-cache"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    
+     
     <title>Test Overview</title> <!-- testOverview.jsp -->
     
     <script type="text/javascript" src="../../foundation/javascript/webAuthnPlus.js"></script>    
@@ -60,9 +60,23 @@
                the <span class="font_emphasis">TNX WebAuthn+</span> mobile app, you can test the system (options on the left).</p>
             <p>Start with "Create Credential".</p>
                
-	          <p>Currently, the Web Bluetooth API is only functional in the <strong>latest versions of Chrome and Edge running on Windows 10/11</strong>.</p>
-            <p>You will need to make sure Bluetooth is turned on in Windows 10/11.</p>
-            <p>You will need to set the Windows 10/11, "Allow apps to control device radios", to "On" while Chrome is NOT running.</p>
+	          <p>Currently, <span class="font_emphasis">WebAuthn+</span> is only functional on our prototype version of the 
+		          <a href="https://drive.google.com/file/d/13Ki_eTSWhSBylI2TaBh4gmH_W-4bXIfS/view?usp=sharing" target="_blank">Nexus Chromium Browser</a>. </p>
+		          
+		      <p><span class="font_body_text"><span class="font_emphasis">Important note:</span>&nbsp; The  
+		          <a href="https://drive.google.com/file/d/13Ki_eTSWhSBylI2TaBh4gmH_W-4bXIfS/view?usp=sharing" target="_blank">Nexus Chromium Browser</a>
+		           is a <span class="font_emphasis">prototype</span>!&nbsp; It is meant for conceptual testing.</span></p>
+		          
+		      <p><span class="font_body_text">The download consists of a 504 MB zip file 
+		           (which is too large for Google drive to scan for viruses; but you really can trust us); this zip file needs to be unzipped and then the browser 
+		           is launched by double clicking on "...\Nexus_Chromium\chrome.exe".</span></p>
+	          
+            <p>You will need to make sure Bluetooth is turned on in Windows 10/11.&nbsp;
+              <a href="https://support.microsoft.com/en-us/windows/turn-bluetooth-on-or-off-in-windows-9e92fddd-4e12-e32b-9132-5e36bdb2f75a" target="_blank">Click here</a> for more details.</p>
+              
+            <p>You will need to set the Windows 10/11, "Allow apps to control device radios", to "On" while Chrome is NOT running.&nbsp;
+              <a href="https://www.thewindowsclub.com/let-windows-apps-control-radios-in-windows-10" target="_blank">Click here</a> for more details.</p>
+            
             <p>Once you and a friend have each created the test <span class="font_emphasis">Financial Credential</span>
                you can test the funds transfer process (with simulated data).&nbsp; <a href="http://www.trustnexus.io/finance.htm" target="_blank">Click Here</a> for more details.</p>
 	          
