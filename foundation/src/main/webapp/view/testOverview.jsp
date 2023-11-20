@@ -5,7 +5,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
-  <!-- (c) Copyright 2022 ~ Trust Nexus, Inc.
+  <!-- (c) Copyright 2023 ~ Trust Nexus, Inc.
        All technologies described here in are "Patent Pending". 
        License information:  http://www.trustnexus.io/license.htm
   
@@ -97,7 +97,7 @@
 	    </div> 
 	    
 	    <div>
-	      <p><span class="font_copyright">&copy; Copyright 2022 ~ Trust Nexus, Inc.
+	      <p><span class="font_copyright">&copy; Copyright 2023 ~ Trust Nexus, Inc.
            <br>All technologies described here in are "Patent Pending".</span></p>
 	    </div> 
 	  </div>  
