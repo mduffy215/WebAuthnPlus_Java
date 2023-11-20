@@ -93,7 +93,7 @@
 		
 	    <div class="footer">
         <p>The code for this page and all the test options is part of the, "WebAuthn+ Open Source Project" (click the "Dev Guide" on the upper left for more details).</p>
-        <p>The CSS for this "responsive design" will cause the page layout to change as you resize your browser.</p>
+        <p>The CSS for this "responsive design" will cause the page layout to change as you resize your browser. </p>
 	    </div> 
 	    
 	    <div>
