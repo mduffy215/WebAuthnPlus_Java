@@ -30,32 +30,33 @@ import io.trustnexus.jdbc.VisitorDao;
 import io.trustnexus.model.Visitor;
 import io.trustnexus.util.Constants;
 
-public class DisplayTestOverviewAction extends ActionSupport implements ServletRequestAware, ServletResponseAware {
+public class DisplayAdPageAction extends ActionSupport implements ServletRequestAware, ServletResponseAware {
 
   private static final long serialVersionUID = 1646074465998580303L;
 
-  private final static Logger logger = LogManager.getLogger(DisplayTestOverviewAction.class);
+  private final static Logger logger = LogManager.getLogger(DisplayAdPageAction.class);
 
   private String refCode;
   private HttpServletRequest servletRequest;
   private HttpServletResponse servletResponse;
 
   public String execute() {
-  	
-  	HttpSession session = servletRequest.getSession();
-  	String sessionIdentifier = session.getId();
-  	ThreadContext.put("sessionId", "sessionId::" + sessionIdentifier + "::");
+    
+    HttpSession session = servletRequest.getSession();
+    String sessionIdentifier = session.getId();
+    ThreadContext.put("sessionId", "sessionId::" + sessionIdentifier + "::");
 
     logger.info("###Entering");
     
     /*
-     * This action displays the testOverview.jsp and registers the IP address of the visitor.  The web page which 
+     * This action displays the AdPage and registers the IP address of the visitor.  The web page which 
      * contacts the TNX Web Application from a web browser through HTTPS (secure).
      */
     
     // ----------------------------------------------------------------------------------------------------------------
 
     try {
+      //refCode = "AD 1";  
       logger.debug("refCode: " + refCode);
 
       Visitor visitor = new Visitor();
@@ -86,14 +87,14 @@ public class DisplayTestOverviewAction extends ActionSupport implements ServletR
   public void setRefCode(String refCode) {
     this.refCode = refCode;
   }
-	
+    
   // ------------------------------------------------------------------------------------------------------------------
 
-	public HttpServletRequest getServletRequest() {
+    public HttpServletRequest getServletRequest() {
     return servletRequest;
   }
 
-	public void setServletRequest(HttpServletRequest servletRequest) {
+    public void setServletRequest(HttpServletRequest servletRequest) {
     this.servletRequest = servletRequest;
   }
 

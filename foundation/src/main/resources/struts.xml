@@ -2,7 +2,7 @@
     "http://struts.apache.org/dtds/struts-2.0.dtd">   
 
 <!-- ======================================================================= -->
-<!-- (c) Copyright 2022 ~ Trust Nexus, Inc.                                  -->
+<!-- (c) Copyright 2023 ~ Trust Nexus, Inc.                                  -->
 <!-- All technologies described here in are "Patent Pending".                -->
 <!-- License information:  http://www.trustnexus.io/license.htm              -->
 <!-- UNDER NO CIRCUMSTANCES DOES THE LICENSE PERMIT REDISTRIBUTION           -->
@@ -266,11 +266,18 @@
             <param name="inputName">inputStream</param>
           </result>
         </action>  
-                
+               
         <action name="displayTestOverview" class="io.trustnexus.struts.actions.DisplayTestOverviewAction" method="execute">
           <result name="success">/view/testOverview.jsp</result>
+        </action>
+                
+        <action name="displayAdPage" class="io.trustnexus.struts.actions.DisplayAdPageAction" method="execute">
+          <result name="success" type="redirect">http://www.trustnexus.io/webauthn_plus_intro.htm</result>
         </action> 
-        
+                
+        <action name="displayVideo" class="io.trustnexus.struts.actions.DisplayVideoAction" method="execute">
+          <result name="success" type="redirect">https://www.youtube.com/watch?v=4GjvCXGE6TY</result>
+        </action>         
         
         <!-- Funds Transfer -->  
 
